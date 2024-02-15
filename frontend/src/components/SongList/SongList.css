@@ -1,20 +1,19 @@
-table{
-    width: 50%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
+table {
+  width: 50%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
 }
-th{
-    background-color: #f2f2f2;
-    padding: 8px;
-    text-align: left;
+th {
+  background-color: #f2f2f2;
+  padding: 8px;
+  text-align: left;
 }
-td{
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
 }
-.songList{
-display: flex;
-flex-direction: column;
-align-items: center;
-
+.songList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

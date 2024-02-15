@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import "./AddSong.css";
+import React, { useEffect, useState } from "react";
+import "./UpdateSong.css";
 
-const AddSong = (props: any) => {
+const UpdateSong = (props: any) => {
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [genre, setGenre] = useState("");
@@ -9,8 +9,16 @@ const AddSong = (props: any) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    props.addSong({ title, artist, genre, album });
+    var _id = props.data._id;
+    props.updateSong({ _id,title, artist, genre, album });
   };
+
+  useEffect(() => {
+    setTitle(props.data.title);
+    setArtist(props.data.artist);
+    setGenre(props.data.genre);
+    setAlbum(props.data.album);
+  }, [props.data]);
 
   return props.showSongModal ? (
     <div>
@@ -62,7 +70,7 @@ const AddSong = (props: any) => {
                 onChange={(e) => setAlbum(e.target.value)}
               />
             </div>
-            <button type="submit">Add Song</button>
+            <button type="submit">Update Song</button>
           </form>
           <button onClick={props.closeSongModal}>CANCEL</button>
         </div>
@@ -71,4 +79,4 @@ const AddSong = (props: any) => {
   ) : null;
 };
 
-export default AddSong;
+export default UpdateSong;

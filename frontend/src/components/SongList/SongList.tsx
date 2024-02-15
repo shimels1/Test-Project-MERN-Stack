@@ -1,8 +1,14 @@
 import React from "react";
-import './SongList.css';
+import "./SongList.css";
 
 const songList = (probs: any) => {
-  
+  const update = (id: any) => {
+    probs.updateSong(id);
+  };
+  const deleteRow = (id: string) => {
+    probs.deleteSong(id);
+  };
+
   return (
     <div className="songList">
       <table>
@@ -22,7 +28,11 @@ const songList = (probs: any) => {
               <td>{song.artist}</td>
               <td>{song.album}</td>
               <td>{song.genre}</td>
-              <td><button>Update</button>&nbsp;&nbsp;<button>Delete</button></td>
+              <td>
+                <button onClick={() => update(song._id)}>Update</button>
+                &nbsp;&nbsp;
+                <button onClick={() => deleteRow(song._id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
