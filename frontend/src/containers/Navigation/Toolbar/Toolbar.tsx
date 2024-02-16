@@ -6,10 +6,10 @@ const toolbar = () => {
     <header className="Toolbar">
       <ul>
         <li>
-          <a href="#">CRUD</a>
+          <a href="/home">CRUD</a>
         </li>
         <li>
-          <a href="#">Stastics</a>
+          <a href="/stat">Stastics</a>
         </li>
       </ul>
     </header>
