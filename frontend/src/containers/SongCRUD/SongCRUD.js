@@ -4,10 +4,11 @@ import SongList from "../../components/SongList/SongList";
 import AddSong from "../../components/AddSong/AddSong";
 import "./SongCRUD.css";
 import UpdateSong from "../../components/UpdateSong/UpdateSong";
+import * as actionTypes from "../../store/actions";
 
+import { connect } from "react-redux";
 class SongCRUD extends Component {
   state = {
-    songList: [],
     showAddSongModal: false,
     showUpdateSongModal: false,
     tempUpdateSongData: {},
@@ -22,7 +23,7 @@ class SongCRUD extends Component {
       axios
         .get("/getAll")
         .then((value) => {
-          this.setState({ songList: value.data });
+          this.props.onSongsChange(value.data);
         })
         .catch((error) => {
           console.log(error);
@@ -32,7 +33,7 @@ class SongCRUD extends Component {
     }
   };
 
-  addSongHundler = async (data: any) => {
+  addSongHundler = async (data) => {
     try {
       await axios
         .post("/post", data)
@@ -48,10 +49,10 @@ class SongCRUD extends Component {
     }
   };
 
-  updateSongHundler = async (data: any) => {
+  updateSongHundler = async (data) => {
     try {
       await axios
-        .put("/put/"+data._id, data)
+        .put("/put/" + data._id, data)
         .then((value) => {
           this.closeUpdateSongModalHundler();
           this.getAllSongs();
@@ -64,7 +65,7 @@ class SongCRUD extends Component {
     }
   };
 
-  deleteSongHundler = async (id: string) => {
+  deleteSongHundler = async (id) => {
     try {
       await axios
         .delete("/delete/" + id)
@@ -82,15 +83,17 @@ class SongCRUD extends Component {
   showAddSongModalHundler = () => {
     this.setState({ showAddSongModal: true });
   };
+
   closeAddSongModalHundler = () => {
     this.setState({ showAddSongModal: false });
   };
 
-  showUpdateSongModalHundler = (id: String) => {
-    const song = this.state.songList.find((s: any) => s._id === id);
+  showUpdateSongModalHundler = (id) => {
+    const song = this.props.songs.find((s) => s._id === id);
     this.setState({ tempUpdateSongData: song });
     this.setState({ showUpdateSongModal: true });
   };
+
   closeUpdateSongModalHundler = () => {
     this.setState({ showUpdateSongModal: false });
   };
@@ -102,7 +105,6 @@ class SongCRUD extends Component {
           <button onClick={this.showAddSongModalHundler}>Add</button>
         </div>
         <SongList
-          songList={this.state.songList}
           deleteSong={this.deleteSongHundler}
           updateSong={this.showUpdateSongModalHundler}
         />
@@ -121,5 +123,17 @@ class SongCRUD extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    songs: state.songs,
+  };
+};
 
-export default SongCRUD;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSongsChange: (song) => dispatch({ type: actionTypes.ADD_SONGS, song: song })
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SongCRUD);
+

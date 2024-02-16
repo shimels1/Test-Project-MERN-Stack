@@ -1,10 +1,12 @@
-import React from "react";
 import "./SongList.css";
+import { connect } from "react-redux";
 
-const songList = (probs: any) => {
+const SongList = (probs: any) => {
+
   const update = (id: any) => {
     probs.updateSong(id);
   };
+  
   const deleteRow = (id: string) => {
     probs.deleteSong(id);
   };
@@ -22,7 +24,7 @@ const songList = (probs: any) => {
           </tr>
         </thead>
         <tbody>
-          {probs.songList.map((song: any) => (
+          {probs.songs.map((song: any) => (
             <tr key={song._id}>
               <td>{song.title}</td>
               <td>{song.artist}</td>
@@ -41,4 +43,12 @@ const songList = (probs: any) => {
   );
 };
 
-export default songList;
+const mapStateToProps = (state) => {
+  {
+    return {
+      songs: state.songs,
+    };
+  }
+};
+
+export default connect(mapStateToProps)(SongList);

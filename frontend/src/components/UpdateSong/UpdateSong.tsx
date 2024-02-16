@@ -10,7 +10,7 @@ const UpdateSong = (props: any) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     var _id = props.data._id;
-    props.updateSong({ _id,title, artist, genre, album });
+    props.updateSong({ _id, title, artist, genre, album });
   };
 
   useEffect(() => {

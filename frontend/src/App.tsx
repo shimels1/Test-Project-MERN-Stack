@@ -1,11 +1,11 @@
 import "./App.css";
-import Layout from "./containers/Layout/Layout";
+import Toolbar from "./containers/Navigation/Toolbar/Toolbar";
 import SongCRUD from "./containers/SongCRUD/SongCRUD";
 
 function App() {
   return (
     <div className="App">
-      <Layout /> <SongCRUD />
+      <Toolbar /> <SongCRUD />
     </div>
   );
 }
