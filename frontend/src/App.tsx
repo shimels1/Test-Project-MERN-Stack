@@ -15,6 +15,7 @@ function App() {
       <BrowserRouter>
       <Toolbar /> 
         <Routes>
+          <Route path="/" Component={SongCRUD} />
           <Route path="/home" Component={SongCRUD} />
           <Route path="/stat" Component={Statistics} />
           <Route path="/stat/artistsDetail" Component={ArtistsDetail} />
