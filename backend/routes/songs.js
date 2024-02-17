@@ -31,8 +31,10 @@ app.get("/get/:id", async (req, res) => {
 // Create a new song
 app.post("/post", async (req, res) => {
   try {
+    console.log(req.body)
     const song = new Song(req.body);
     await song.save();
+
     res.status(201).json(song);
   } catch (error) {
     res.status(400).json({ message: error.message });

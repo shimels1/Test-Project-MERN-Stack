@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 module.exports = function (app) {
   mongoose
-    .connect("mongodb://0.0.0.0:27017/song", {
+    .connect("mongodb+srv://test:test@atlascluster.brya8st.mongodb.net/?retryWrites=true&w=majority", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
