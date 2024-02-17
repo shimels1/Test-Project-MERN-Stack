@@ -1,14 +1,14 @@
-.Modal {
+.Modal2 {
   position: fixed;
   z-index: 500;
   background-color: white;
   color: black;
-  width: 70%;
+  width: 40%;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px black;
   padding: 16px;
-  left: 15%;
-  top: 30%;
+  left: 30%;
+  top: 10%;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }
@@ -28,4 +28,7 @@
   left: 0;
   top: 0;
   background-color: rgba(23, 28, 21, 0.825);
+}
+.Modal2 input{
+  padding: 8px;
 }

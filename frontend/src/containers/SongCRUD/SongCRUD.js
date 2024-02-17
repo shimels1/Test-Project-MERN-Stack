@@ -7,6 +7,7 @@ import UpdateSong from "../../components/UpdateSong/UpdateSong";
 import * as actionTypes from "../../store/actions";
 
 import { connect } from "react-redux";
+import { Button } from "rebass";
 class SongCRUD extends Component {
   state = {
     showAddSongModal: false,
@@ -29,7 +30,7 @@ class SongCRUD extends Component {
           console.log(error);
         });
     } catch (error) {
-      console.error("Error adding song:", error);
+      console.error("Error getting songs:", error);
     }
   };
 
@@ -61,7 +62,7 @@ class SongCRUD extends Component {
           console.log(error);
         });
     } catch (error) {
-      console.error("Error adding song:", error);
+      console.error("Error updating song:", error);
     }
   };
 
@@ -102,7 +103,14 @@ class SongCRUD extends Component {
     return (
       <div className="">
         <div className="songCRUD">
-          <button onClick={this.showAddSongModalHundler}>Add</button>
+          <Button
+            bg="gray"
+            type="submit"
+            fontSize={1}
+            onClick={this.showAddSongModalHundler}
+          >
+            Add{" "}
+          </Button>
         </div>
         <SongList
           deleteSong={this.deleteSongHundler}
@@ -131,9 +139,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSongsChange: (song) => dispatch({ type: actionTypes.ADD_SONGS, song: song })
+    onSongsChange: (song) =>
+      dispatch({ type: actionTypes.ADD_SONGS, song: song }),
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongCRUD);
-

@@ -6,7 +6,7 @@ require("./startup/databaseConnection")(app);
 require("./startup/routes")(app);
 app.enable("trust proxy");
 
-var port = 3000;
+var port = 3001;
 app.listen(port, () => {
   console.log(`server port is running in ${port}`);
 });

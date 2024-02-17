@@ -3,7 +3,8 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background: #f0f0f3;
+  border: solid #dfe1e6 1px;
 }
 
 li {
@@ -19,5 +20,22 @@ li a {
 }
 
 li a:hover {
-  background-color: #111;
+  /* background-color: #111; */
+}
+
+.link {
+  color: black;
+}
+
+.active-link {
+  font-weight: bold;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar ul a.active {
+  color: rgb(34 197 94);
 }

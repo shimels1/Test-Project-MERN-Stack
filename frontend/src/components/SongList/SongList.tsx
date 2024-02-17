@@ -1,12 +1,12 @@
+import { Button } from "rebass";
 import "./SongList.css";
 import { connect } from "react-redux";
 
 const SongList = (probs: any) => {
-
   const update = (id: any) => {
     probs.updateSong(id);
   };
-  
+
   const deleteRow = (id: string) => {
     probs.deleteSong(id);
   };
@@ -31,9 +31,23 @@ const SongList = (probs: any) => {
               <td>{song.album}</td>
               <td>{song.genre}</td>
               <td>
-                <button onClick={() => update(song._id)}>Update</button>
+                <Button
+                  bg="gray"
+                  type="submit"
+                  fontSize={1}
+                  onClick={() => update(song._id)}
+                >
+                  Update
+                </Button>
                 &nbsp;&nbsp;
-                <button onClick={() => deleteRow(song._id)}>Delete</button>
+                <Button
+                  bg="gray"
+                  type="submit"
+                  fontSize={1}
+                  onClick={() => deleteRow(song._id)}
+                >
+                  Delete
+                </Button>
               </td>
             </tr>
           ))}

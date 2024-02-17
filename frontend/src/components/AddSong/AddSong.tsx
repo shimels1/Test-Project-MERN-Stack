@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./AddSong.css";
+import { css } from "@emotion/css";
+import { Button } from "rebass";
 
 const AddSong = (props: any) => {
   const [title, setTitle] = useState("");
@@ -16,7 +18,7 @@ const AddSong = (props: any) => {
     <div>
       <div className="Backdrop">
         <div
-          className="Modal"
+          className="Modal2"
           style={{
             transform: props.showSongModal
               ? "translateY(0)"
@@ -24,9 +26,24 @@ const AddSong = (props: any) => {
             opacity: props.showSongModal ? "1" : "0",
           }}
         >
-          <h2>Add a New Song</h2>
-          <form onSubmit={handleSubmit}>
-            <div>
+          <h2>&nbsp;&nbsp;Add a New Song</h2>
+          <form
+            onSubmit={handleSubmit}
+            className={css`
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              gap: 10px;
+              padding: 20px 10px;
+            `}
+          >
+            <div
+              className={css`
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              `}
+            >
               <label htmlFor="title">Title:</label>
               <input
                 type="text"
@@ -35,7 +52,13 @@ const AddSong = (props: any) => {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
-            <div>
+            <div
+              className={css`
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              `}
+            >
               <label htmlFor="artist">Artist:</label>
               <input
                 type="text"
@@ -44,7 +67,13 @@ const AddSong = (props: any) => {
                 onChange={(e) => setArtist(e.target.value)}
               />
             </div>
-            <div>
+            <div
+              className={css`
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              `}
+            >
               <label htmlFor="genre">Genre:</label>
               <input
                 type="text"
@@ -53,7 +82,13 @@ const AddSong = (props: any) => {
                 onChange={(e) => setGenre(e.target.value)}
               />
             </div>
-            <div>
+            <div
+              className={css`
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              `}
+            >
               <label htmlFor="album">Album:</label>
               <input
                 type="text"
@@ -62,9 +97,19 @@ const AddSong = (props: any) => {
                 onChange={(e) => setAlbum(e.target.value)}
               />
             </div>
-            <button type="submit">Add Song</button>
+
+            <Button bg="gray" type="submit" fontSize={1}>
+              Add Song
+            </Button>
+            <Button
+              bg="gray"
+              type="submit"
+              onClick={props.closeSongModal}
+              fontSize={1}
+            >
+              CANCEL
+            </Button>
           </form>
-          <button onClick={props.closeSongModal}>CANCEL</button>
         </div>
       </div>
     </div>

@@ -92,7 +92,7 @@ app.get("/albums/count", async (req, res) => {
 });
 
 // Get the total count of genres
-app.get("/Genres/count", async (req, res) => {
+app.get("/genres/count", async (req, res) => {
   try {
     const uniqueGenres = await Song.distinct("genre");
     const albumsCount = uniqueGenres.length;
