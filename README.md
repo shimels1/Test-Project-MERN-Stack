@@ -10,6 +10,16 @@ This project is a full-stack web application built using the MERN stack (MongoDB
 - **Node.js**: Runtime environment for executing JavaScript code on the server side.
 - **CRUD Operations**: Users can create, update, and delete songs through the frontend.
 - **Statistics Section**: Displays statistics related to the songs.
+- 
+## For Live site [Click here.](https://shimels1.github.io/Test-Project-MERN-Stack/)
+
+## Screenshots
+
+![ScreenShot](https://github.com/shimels1/Test-Project-MERN-Stack/blob/main/screenshot/1.png)
+![ScreenShot](https://github.com/shimels1/Test-Project-MERN-Stack/blob/main/screenshot/2.png)
+![ScreenShot](https://github.com/shimels1/Test-Project-MERN-Stack/blob/main/screenshot/3.png)
+![ScreenShot](https://github.com/shimels1/Test-Project-MERN-Stack/blob/main/screenshot/4.png)
+![ScreenShot](https://github.com/shimels1/Test-Project-MERN-Stack/blob/main/screenshot/5.png)
 
 ## Prerequisites
 
@@ -77,15 +87,6 @@ Before running the project, make sure you have the following installed:
 - The statistics section displays relevant data related to the songs.
 - You can test the application locally by navigating to `http://localhost:3000` for the UI, which communicates with the backend server running at `http://localhost:5000`.
 
-## For Live site [Click here.](https://shimels1.github.io/Test-Project-MERN-Stack/)
-
-## Screenshots
-
-![ScreenShot](https://github.com/shimels1/Test-Project-MERN-Stack/blob/main/screenshot/1.png)
-![ScreenShot](https://github.com/shimels1/Test-Project-MERN-Stack/blob/main/screenshot/2.png)
-![ScreenShot](https://github.com/shimels1/Test-Project-MERN-Stack/blob/main/screenshot/3.png)
-![ScreenShot](https://github.com/shimels1/Test-Project-MERN-Stack/blob/main/screenshot/4.png)
-![ScreenShot](https://github.com/shimels1/Test-Project-MERN-Stack/blob/main/screenshot/5.png)
 
 ## License
 
